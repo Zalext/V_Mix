@@ -1,0 +1,70 @@
+{
+   "author" : "Richard Neomy",
+   "background" : {
+      "scripts" : [ "common.js" ]
+   },
+   "commands" : {
+      "suspend-all" : {
+         "description" : "Suspend all tabs"
+      },
+      "suspend-tab" : {
+         "description" : "Suspend this tab"
+      },
+      "unsuspend-all" : {
+         "description" : "Unsuspend all tabs"
+      },
+      "unsuspend-tab" : {
+         "description" : "Unuspend this tab"
+      },
+      "unsuspend-window" : {
+         "description" : "Unsuspend this window"
+      }
+   },
+   "content_scripts" : [
+      {
+         "all_frames" : true,
+         "js" : [ "data/change.js" ],
+         "match_about_blank" : true,
+         "matches" : [ "*://*/*" ]
+      },
+      {
+         "js" : [ "data/idle.js" ],
+         "matches" : [ "*://*/*" ]
+      }
+   ],
+   "description" : "Automatically suspend (hibernate) inactive tabs to free up system resources",
+   "homepage_url" : "http://add0n.com/tab-suspender.html",
+   "icons" : {
+      "128" : "data/icons/128.png",
+      "16" : "data/icons/16.png",
+      "48" : "data/icons/48.png"
+   },
+   "incognito" : "split",
+   "key" : "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmkcMat6GOIdL3xH6fi++A5pDydmShDz5IDiWE2pRAI9fqdibAhpJszhLIakqhMM3SE84TWmFX5hjEF+cDkQUTenBZrYi2atuWLd3NYoM1m3RpYFvQ3QNySsSRvJoL5cLyf37v9St76l+LuMpPKqt4DFf9BmkYJvxynR3fEZaw148w0lDYYtP+l/hCrw0UoIuwVYyTTaVtxxMgn5jKTaScVvWge/QSC3KeqM5Lfr82LtKBX8Fbr0CySQFdM8lSrZwfPrORtxoXyjLRmt2aqUcn+70mBdAoBq4ljfx49j3S8G/6GQI+G9ZQakMAI0b9qJAp8o4dy28bJQyz5U3/zd+BwIDAQAB",
+   "manifest_version" : 2,
+   "name" : "Tab Suspender (memory saver)",
+   "optional_permissions" : [ "bookmarks" ],
+   "options_ui" : {
+      "chrome_style" : true,
+      "page" : "data/options/index.html"
+   },
+   "page_action" : {
+      "default_icon" : {
+         "16" : "data/icons/16.png",
+         "32" : "data/icons/32.png"
+      },
+      "default_popup" : "data/panel/index.html"
+   },
+   "permissions" : [
+      "storage",
+      "tabs",
+      "idle",
+      "notifications",
+      "contextMenus",
+      "*://*/*",
+      "chrome://favicon/*"
+   ],
+   "short_name" : "itsuspender",
+   "update_url" : "https://clients2.google.com/service/update2/crx",
+   "version" : "0.2.4"
+}

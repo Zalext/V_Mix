@@ -1,0 +1,48 @@
+html,
+body {
+  height: 100%;
+}
+body {
+  background: url('background.svg') center center no-repeat;
+  background-size: 50vh;
+  margin: 0;
+  font-size: 13px;
+  font-family: arial,sans-serif;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+body[data-mode=dark] {
+  background-color: #1c3331c;
+  background-image: url('background-dark.svg');
+  color: #888;
+}
+h1 {
+  margin: 20px;
+  padding: 15px;
+  font-size: 220%;
+}
+h2 {
+  margin: -10px;
+  padding: 5px;
+  font-size: 140%;
+}
+h1,h2 {
+  max-width: 80%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+canvas {
+  display: none;
+}
+
+#info {
+  display: flex;
+  align-items: flex-end;
+  width: calc(100% - 20px);
+  height: 100%;
+  padding: 10px;
+}
